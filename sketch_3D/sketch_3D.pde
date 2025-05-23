@@ -1,16 +1,20 @@
 float rotation = 0;
+PShape spaceship;
 PShape asteroid;
 void setup() {
   size(1000, 1000, P3D);
-  asteroid = loadShape("space-shuttle.obj");
+  spaceship = loadShape("space-shuttle.obj");
+  spaceship.scale(.4);
+  asteroid = loadShape("asteroid.obj");
 }
 
 void draw() {
   background(100);
   translate(500, 500, 700);
+  rotateX(3* PI/2);
   rotateZ(PI);
   rotateY(PI/2 + rotation);
-  shape(asteroid);
+  shape(spaceship);
   rotation += PI/64;
 }
 
