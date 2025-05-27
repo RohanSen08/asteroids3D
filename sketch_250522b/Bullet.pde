@@ -7,7 +7,7 @@ class Bullet{
     
     public Bullet(){
       position = new PVector(0,0,0);
-      velocity;
+      velocity = new PVector(50,50,50);
       
       active = true;
     }
