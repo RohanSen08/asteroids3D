@@ -27,9 +27,11 @@ class Model3D {
     PImage img = loadImage(path);
     shape.setTexture(img);
   }
-  public void render(int x, int y, int z, float theta) {
+  public void render(int x, int y, int z, float thetaX, float thetaY, float thetaZ) {
     translate(x, y, z);
-    rotateY(theta);
+    rotateX(thetaX);
+    rotateY(thetaY);
+    rotateZ(thetaZ);
     shape(shape);
   }
 }
