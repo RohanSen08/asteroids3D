@@ -16,8 +16,8 @@ void draw() {
 }
 
 void keyPressed(){
-  if (keyCode == LEFT) rotationY += PI/8;
-  if (keyCode == RIGHT) rotationY -= PI/8;
-  if (keyCode == UP) rotationX += PI/8;
-  if (keyCode == DOWN) rotationX -= PI/8;
+  if (keyCode == LEFT) rotationY -= PI/8;
+  if (keyCode == RIGHT) rotationY += PI/8;
+  if (keyCode == UP) rotationX -= PI/8;
+  if (keyCode == DOWN) rotationX += PI/8;
 }
