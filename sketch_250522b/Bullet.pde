@@ -10,12 +10,12 @@ class Bullet{
     
     public Bullet(){
       position = new PVector(0,0, 0);
-      velocity = PVector.mult(direction, 10);
+      angle = (double) Spaceship.getRotation();
       direction = new PVector(cos(angle), sin(angle), 0);
-      angle = Spaceship.getRotation();
+      velocity = PVector.mult(direction, 10);
       lifespan = 100;
       active = true;
-      bullet = new Model3D("bullet.obj");//find a model;
+      bullet = new Model3D("9mmLuger.obj");
     }
     
     public void update(){
