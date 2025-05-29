@@ -13,7 +13,7 @@ class Bullet{
       velocity = new PVector(50,50,50);
       direction = new PVector(cos(angle), sin(angle), 0);
       angle = 90;
-      lifespan = 20;
+      lifespan = 20;      
       active = true;
       bullet//find a model;
     }
