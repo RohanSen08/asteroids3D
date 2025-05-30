@@ -4,14 +4,14 @@ class Bullet{
     private PVector velocity;
     private PVector direction;
     private int lifespan;
-    private double angle;
+    private float angleX, angleY, angleZ;
     private boolean active;
     private Model3D bullet;
     
     public Bullet(){
       position = new PVector(0,0, 0);
-      angle = (double) Spaceship.getRotation();
-      direction = new PVector(cos(angle), sin(angle), 0);
+      angleX = (float) SpaceShip.rotationX;
+      direction = new PVector(cos(angleX), sin(angleY), 0);
       velocity = PVector.mult(direction, 10);
       lifespan = 100;
       active = true;
@@ -31,7 +31,7 @@ class Bullet{
       pushMatrix(); 
      translate(position.x, position.y, position.z);
      rotateY(angle);
-      bullet.render((int) position.x, (int) position.y, (int) position.z, angle);
+      bullet.render((int) position.x, (int) position.y, (int) position.z, map(mouseY, 0, height, PI/2, 3*PI/2), map(mouseX, 0, width, -PI/2, PI/2), rotationZ);
       popMatrix();
     } 
     

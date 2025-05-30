@@ -10,6 +10,7 @@ class SpaceShip {
     rotationZ = 0;
     model = new Model3D(path);
   }
+  
   public void rotate(float dirX, float dirY, float dirZ) {
     rotationX += dirX;
     rotationY += dirY;
