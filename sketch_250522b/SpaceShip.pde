@@ -1,18 +1,22 @@
 class SpaceShip {
-  PVector position;
   float rotationX;
   float rotationY;
   float rotationZ;
   Model3D model;
+  
   public SpaceShip(String path) {
-    rotationY = PI/2;
+    rotationX = PI;
+    rotationY = 0;
+    rotationZ = 0;
     model = new Model3D(path);
-    position = new PVector(0,0,0);
   }
-  public void rotate(float dir) {
-    rotationX += dir;
+  public void rotate(float dirX, float dirY, float dirZ) {
+    rotationX += dirX;
+    rotationY += dirY;
+    rotationZ += dirZ;
   }
   public void render() {
-    model.render((int) position.x, (int) position.y, (int) position.z, rotationX, rotationY, rotationZ);
+    model.render((int) 500, (int) 575, (int) 700, map(mouseY, 0, height, PI/2, 3*PI/2), map(mouseX, 0, width, -PI/2, PI/2), rotationZ);
   }
+  
 }

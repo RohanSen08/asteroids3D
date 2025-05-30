@@ -3,6 +3,7 @@ class Model3D {
   String objFile;
   PImage texture;
   float scale;
+
   public Model3D(String path, String texturePath) {
     objFile = path;
     shape = loadShape(path);
