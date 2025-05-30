@@ -10,26 +10,32 @@ class Bullet{
     
     public Bullet(){
       position = new PVector(0,0, 0);
-      velocity = new PVector(50,50,50);
+      angle = (double) Spaceship.getRotation();
       direction = new PVector(cos(angle), sin(angle), 0);
-      angle = 90;
-      lifespan = 20;      
+      velocity = PVector.mult(direction, 10);
+      lifespan = 100;
       active = true;
-      bullet//find a model;
+      bullet = new Model3D("9mmLuger.obj");
     }
     
     public void update(){
-      position.x += velocity.x * angle;
-      position.y += velocity.y * angle;
-      position.z += velocity.z * angle;
-    }
-    
-    public void render(){
+      position.add(velocity);
+      lifespan--;
+      if (lifespan <= 0){
+        active = false; 
+      }
       
     }
     
+    public void render(){
+      pushMatrix(); 
+     translate(position.x, position.y, position.z);
+     rotateY(angle);
+      bullet.render((int) position.x, (int) position.y, (int) position.z, angle);
+      popMatrix();
+    } 
+    
     public boolean isAlive(){
-      return CollisionDetector.checkCollision(bullet, /*asteroid*/) && lifespan >= 0;
+      return active;
     }
-  
 }
