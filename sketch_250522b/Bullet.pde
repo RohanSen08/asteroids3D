@@ -1,4 +1,4 @@
-class Bullet{
+/*class Bullet{
 
     private PVector position;
     private PVector velocity;
@@ -29,7 +29,7 @@ class Bullet{
     }
     
     public boolean isAlive(){
-      return CollisionDetector.checkCollision(bullet, /*asteroid*/) && lifespan >= 0;
+      return CollisionDetector.checkCollision(bullet, asteroid) && lifespan >= 0;
     }
   
-}
+}*/
