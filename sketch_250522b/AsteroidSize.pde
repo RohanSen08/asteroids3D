@@ -1,6 +1,6 @@
-class AsteroidSize{
+/*class AsteroidSize{
 enum AsteroidSize {
   LARGE,
   MEDIUM,
   SMALL
-}
+}*/

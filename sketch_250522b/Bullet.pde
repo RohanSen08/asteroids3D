@@ -28,7 +28,11 @@ class Bullet{
     }
     
     public void render(){
+      pushMatrix(); 
+     translate(position.x, position.y, position.z);
+     rotateY(angle);
       bullet.render((int) position.x, (int) position.y, (int) position.z, angle);
+      popMatrix();
     } 
     
     public boolean isAlive(){
