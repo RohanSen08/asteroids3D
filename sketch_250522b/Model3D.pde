@@ -29,10 +29,12 @@ class Model3D {
     shape.setTexture(img);
   }
   public void render(int x, int y, int z, float thetaX, float thetaY, float thetaZ) {
+    pushMatrix();
     translate(x, y, z);
     rotateX(thetaX);
     rotateY(thetaY);
     rotateZ(thetaZ);
     shape(shape);
+    popMatrix();
   }
 }
