@@ -37,4 +37,15 @@ class Model3D {
     shape(shape);
     popMatrix();
   }
+  public void render(int x, int y, int z, float thetaX, float thetaY, float thetaZ, int scale) {
+    pushMatrix();
+    translate(x, y, z);
+    rotateX(thetaX);
+    rotateY(thetaY);
+    rotateZ(thetaZ);
+    fill(200);
+    noStroke();
+    sphere(scale);
+    popMatrix();
+  }
 }
