@@ -6,6 +6,7 @@ PImage bg;
 Asteroid asteroid;
 ArrayList<Asteroid> asteroids = new ArrayList<>();
 int tick;
+ArrayList<Bullet> alan = new ArrayList<>();
 void setup() {
   bg = loadImage("background.png");
   background(bg);
@@ -19,5 +20,13 @@ void draw() {
   spaceShip.render();
   if (tick%50 == 0) asteroids.add(new Asteroid("Pluto.obj"));
   for (int i = 0; i < asteroids.size(); i++) asteroids.get(i).render();
+  for (int i = 0; i < alan.size(); i++) { 
+    alan.get(i).update();
+    alan.get(i).render();
+  }
   tick++;
+}
+
+void mouseClicked(){
+  alan.add(new Bullet(spaceShip));
 }
