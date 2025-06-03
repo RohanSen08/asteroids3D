@@ -19,5 +19,5 @@ class SpaceShip {
   public void render() {
     model.render((int) 500, (int) 575, (int) 700, map(mouseY, 0, height, PI/2, 3*PI/2), map(mouseX, 0, width, -PI/2, PI/2), rotationZ);
   }
-  
+   
 }
