@@ -8,19 +8,17 @@ class Bullet{
     private float angleX, angleY, angleZ;
     private boolean active;
     private Model3D bullet;
-    private int speed;
     
     public Bullet(SpaceShip spaceship){
       
-    position = spaceship.position;
+    position = new PVector(500, 575, 700);
     
     direction = new PVector(cos(spaceship.rotationY), sin(spaceship.rotationY), 0);
-    speed = 15;
-    velocity = PVector.mult(direction, speed);
+    velocity = PVector.mult(direction, 15);
     
-    rotationX = spaceship.rotationX;
-    rotationY = spaceship.rotationY;
-    rotationZ = spaceship.rotationZ;
+    angleX = spaceship.rotationX;
+    angleY = spaceship.rotationY;
+    angleZ = spaceship.rotationZ;
     
     maxLifeSpan = 120; 
     lifespan = maxLifeSpan;
@@ -28,26 +26,7 @@ class Bullet{
     
     bullet = new Model3D("9mmLuger.obj");
     }
-    
-    public Bullet(PVector startPos, float shipRotX, float shipRotY, float shipRotZ) {
-    position = startPos.copy();
-    
-    direction = new PVector(cos(shipRotY), 0, sin(shipRotY));
-    speed = 15;
-    velocity = PVector.mult(direction, speed);
-    
-    rotationX = shipRotX;
-    rotationY = shipRotY;
-    rotationZ = shipRotZ;
-    
-    maxLifeSpan = 120;
-    lifespan = maxLifeSpan;
-    active = true;
-    
-    bullet = new Model3D("9mmLuger.obj");
-
-    }
-    public void update(){
+     public void update(){
       position.add(velocity);
       lifespan--;
       if (lifespan <= 0){
@@ -57,13 +36,7 @@ class Bullet{
     }
     
     public void render(){
-      pushMatrix(); 
-     translate(position.x, position.y, position.z);
-     rotateX(angleX);
-     rotateY(angleY);
-     rotateZ(angleZ);
     bullet.render((int)position.x, (int)position.y, (int)position.z, angleX, angleY, angleZ);
-      popMatrix();
     } 
     
     public boolean isAlive(){
