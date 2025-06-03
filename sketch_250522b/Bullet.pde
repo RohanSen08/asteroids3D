@@ -14,8 +14,7 @@ class Bullet{
     position = new PVector(500, 575, 700);
     
     direction = new PVector(map(mouseY, 0, height, 0, PI), -map(mouseX, 0, width, 0, PI), spaceship.rotationZ);
-    velocity = PVector.mult(direction, 5);
-    
+    velocity = PVector.mult(direction, 5);    
     angleX = spaceship.rotationX;
     angleY = spaceship.rotationY;
     angleZ = spaceship.rotationZ;
