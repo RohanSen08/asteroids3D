@@ -59,16 +59,14 @@ class Bullet{
     public void render(){
       pushMatrix(); 
      translate(position.x, position.y, position.z);
-     rotateX(angleX);
      rotateY(angleY);
-     rotateZ(angleZ);
-    bullet.render((int)position.x, (int)position.y, (int)position.z, angleX, angleY, angleZ);
-      popMatrix();
+      bullet.render((int) position.x, (int) position.y, (int) position.z, map(mouseY, 0, height, PI/2, 3*PI/2), map(mouseX, 0, width, -PI/2, PI/2), rotationZ);>>>>lame
+     popMatrix();
     } 
     
     public boolean isAlive(){
       return active;
-    }
+    }  
     
     public PVector getPosition() {
         return position;

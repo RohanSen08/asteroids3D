@@ -3,6 +3,7 @@ class Model3D {
   String objFile;
   PImage texture;
   float scale;
+
   public Model3D(String path, String texturePath) {
     objFile = path;
     shape = loadShape(path);
@@ -28,10 +29,23 @@ class Model3D {
     shape.setTexture(img);
   }
   public void render(int x, int y, int z, float thetaX, float thetaY, float thetaZ) {
+    pushMatrix();
     translate(x, y, z);
     rotateX(thetaX);
     rotateY(thetaY);
     rotateZ(thetaZ);
     shape(shape);
+    popMatrix();
+  }
+  public void render(int x, int y, int z, float thetaX, float thetaY, float thetaZ, int scale) {
+    pushMatrix();
+    translate(x, y, z);
+    rotateX(thetaX);
+    rotateY(thetaY);
+    rotateZ(thetaZ);
+    fill(200);
+    noStroke();
+    sphere(scale);
+    popMatrix();
   }
 }
