@@ -19,7 +19,10 @@ void draw() {
   background(bg);
   spaceShip.render();
   if (tick%50 == 0) asteroids.add(new Asteroid("Pluto.obj"));
-  for (int i = 0; i < asteroids.size(); i++) asteroids.get(i).render();
+  for (int i = asteroids.size() - 1; i >= 0; i--) {
+    if (!asteroids.get(i).inBounds()) asteroids.remove(i);
+    else asteroids.get(i).render();
+  }
   for (int i = 0; i < alan.size(); i++) { 
     alan.get(i).update();
     alan.get(i).render();
