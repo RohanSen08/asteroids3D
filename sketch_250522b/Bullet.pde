@@ -28,7 +28,7 @@ class Bullet{
     velocity = PVector.mult(direction, -7.5);    
 
     
-    maxLifeSpan = 12000; 
+    maxLifeSpan = 100; 
     lifespan = maxLifeSpan;
     active = true;
     

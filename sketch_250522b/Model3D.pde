@@ -43,9 +43,10 @@ class Model3D {
     rotateX(thetaX);
     rotateY(thetaY);
     rotateZ(thetaZ);
-    fill(200);
+    beginShape();
     noStroke();
     sphere(scale);
+    endShape();
     popMatrix();
   }
 }
