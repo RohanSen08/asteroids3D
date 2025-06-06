@@ -13,11 +13,20 @@ class Bullet{
       
     position = new PVector(500, 575, 700);
     
-    direction = new PVector(map(mouseY, 0, height, 0, PI), -map(mouseX, 0, width, 0, PI), spaceship.rotationZ);
-    velocity = PVector.mult(direction, 5);    
-    angleX = spaceship.rotationX;
-    angleY = spaceship.rotationY;
+    angleX = map(mouseY, 0, height, PI/2, 3*PI/2);
+    angleY = map(mouseX, 0, width, -PI/2, PI/2);
     angleZ = spaceship.rotationZ;
+    
+    //direction = new PVector(sin(angleX) * cos(angleY), -cos(angleX),sin(angleX) * sin(angleY));
+    direction = new PVector(0, 0, -1);
+    direction.y = direction.y * cos(angleX) - direction.z * sin(angleX);
+    direction.z = direction.y * sin(angleX) + direction.z * cos(angleX);
+    
+    direction.x = -direction.x * cos(angleY) - direction.z * sin(angleY);
+    direction.z = direction.x * sin(angleY) + direction.z * cos(angleY);
+    direction.normalize();
+    velocity = PVector.mult(direction, -7.5);    
+
     
     maxLifeSpan = 12000; 
     lifespan = maxLifeSpan;

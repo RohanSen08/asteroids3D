@@ -24,4 +24,8 @@ class Asteroid {
     model.render((int) position.x, (int) position.y, (int) position.z, rotate, -rotate, rotate, size);
     tick++;
   }
+  public boolean inBounds() {
+    if (position.x > 500 && position.y > 575 && position.z > 700) return false;
+    return true;
+  }
 }
