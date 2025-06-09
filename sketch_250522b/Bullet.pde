@@ -44,7 +44,7 @@ class Bullet{
     }
     
     public void render(){
-      bullet.render((int)position.x, (int)position.y, (int)position.z, angleX, angleY, angleZ);
+      bullet.render((int)position.x, (int)position.y, (int)position.z, angleX, angleY, angleZ, true);
     } 
     
     public boolean isAlive(){

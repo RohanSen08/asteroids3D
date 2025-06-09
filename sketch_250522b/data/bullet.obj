@@ -1,6 +1,6 @@
 # Blender v2.93.1 OBJ File: '9mm Luger 01 - Final.blend'
 # www.blender.org
-mtllib 9mm Luger.mtl
+mtllib bullet.mtl
 o 9mm_Luger
 v 0.001413 0.058088 0.003958
 v 0.001897 0.056573 0.001734
