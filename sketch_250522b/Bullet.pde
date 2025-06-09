@@ -32,7 +32,7 @@ class Bullet{
     lifespan = maxLifeSpan;
     active = true;
     
-    bullet = new Model3D("space-shuttle.obj");
+    bullet = new Model3D("bullet.obj");
     }
      public void update(){
       position.add(velocity);
