@@ -13,6 +13,9 @@ class Model3D {
   public Model3D(String path) {
     objFile = path;
     shape = loadShape(path);
+  }
+  public Model3D(PShape asteroid) {
+    shape = asteroid;
   } 
   public void loadModel(String path) {
     objFile = path;
@@ -49,18 +52,6 @@ class Model3D {
     box(10, 10, 25);
     endShape();
     fill(255,255,255);
-    popMatrix();
-  }
-  public void render(int x, int y, int z, float thetaX, float thetaY, float thetaZ, int scale) {
-    pushMatrix();
-    translate(x, y, z);
-    rotateX(thetaX);
-    rotateY(thetaY);
-    rotateZ(thetaZ);
-    beginShape();
-    noStroke();
-    sphere(scale);
-    endShape();
     popMatrix();
   }
 }
