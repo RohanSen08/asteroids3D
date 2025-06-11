@@ -10,27 +10,33 @@ class Model3D {
     texture = loadImage(texturePath);
     shape.setTexture(texture);
   } 
+  
   public Model3D(String path) {
     objFile = path;
     shape = loadShape(path);
   }
+  
   public Model3D(PShape asteroid) {
     shape = asteroid;
   } 
+  
   public void loadModel(String path) {
     objFile = path;
     shape = loadShape(path);
   }
+  
   public void loadModel(String path, String texturePath) {
     objFile = path;
     shape = loadShape(path);
     texture = loadImage(texturePath);
     shape.setTexture(texture);
   }
+  
   public void setTexture(String path) {
     PImage img = loadImage(path);
     shape.setTexture(img);
   }
+  
   public void render(int x, int y, int z, float thetaX, float thetaY, float thetaZ) {
     pushMatrix();
     translate(x, y, z);
@@ -40,7 +46,8 @@ class Model3D {
     shape(shape);
     popMatrix();
   }
-  public void render(int x, int y, int z, float thetaX, float thetaY, float thetaZ, boolean skib) {
+  
+  public void renderBullet(int x, int y, int z, float thetaX, float thetaY, float thetaZ) {
     pushMatrix();
     translate(x, y, z);
     rotateX(thetaX);

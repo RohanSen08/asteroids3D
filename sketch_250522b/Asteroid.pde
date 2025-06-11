@@ -1,7 +1,6 @@
 class Asteroid {
   PVector position;
   PVector velocity;
-  //AsteroidSize size;
   float rotate;
   Model3D model;
   int tick;
@@ -16,16 +15,19 @@ class Asteroid {
   }
   public void render() {
     if (tick % 5 == 0) {
-      rotate += PI/8;
       position.x += velocity.x;
       position.y += velocity.y;
       position.z += velocity.z;
     }
+    rotate += PI/16;
     model.render((int) position.x, (int) position.y, (int) position.z, rotate, -rotate, rotate);
     tick++;
   }
   public boolean inBounds() {
     if (position.x > 500 && position.y > 575 && position.z > 700) return false;
     return true;
+  }
+  public PVector getPosition() {
+    return position;
   }
 }
