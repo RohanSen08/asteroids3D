@@ -21,6 +21,7 @@ ScoreManager sc = new ScoreManager();
 int finalScore = 0;
 boolean firstRun = true;
 PFont font;
+int coolOff = 5;
 
 void setup() {
   bg = loadImage("background.png");
@@ -94,13 +95,17 @@ void draw() {
       text("Final Score: " + finalScore, 350, 800);
       fill(255,255,255);
     }
+    coolOff--;
   }
 }
 
 void mouseClicked(){
   if (firstRun) firstRun = false;
   if (!alive) {
-    alive = true;
+    if (coolOff < 0) {
+      coolOff = 5;
+      alive = true;
+    }
   } else {
     laser.play();
     bullets.add(new Bullet(spaceShip));
