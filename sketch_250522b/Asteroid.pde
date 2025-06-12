@@ -1,16 +1,17 @@
 class Asteroid {
-  private PVector position;
-  private PVector velocity;
-  private float rotate;
-  private Model3D model;
-  private int tick;
-  
+  PVector position;
+  PVector velocity;
+  float rotate;
+  Model3D model;
+  int tick;
+  int size;
   public Asteroid(PShape object) {
     model = new Model3D(object);
     position = new PVector(random(600)+100,random(600)+100,random(100)+200);
-    velocity = new PVector((500-position.x)/(50/min(2.5, 1 + 0.005 * sc.getScore())), (575-position.y)/(50/min(2.5, 1 + 0.005 * sc.getScore())), (700-position.z)/(50/min(2.5, 1 + 0.005 * sc.getScore())));
+    velocity = new PVector((500-position.x)/50, (575-position.y)/50, (700-position.z)/50);
     rotate = 0;
     tick = 0;
+    size = (int) random(25) + 10;
   }
   public void render() {
     if (tick % 5 == 0) {
