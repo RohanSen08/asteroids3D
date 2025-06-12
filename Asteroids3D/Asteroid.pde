@@ -8,7 +8,7 @@ class Asteroid {
   public Asteroid(PShape object) {
     model = new Model3D(object);
     position = new PVector(random(600)+100,random(600)+100,random(100)+200);
-    velocity = new PVector((500-position.x)/50, (575-position.y)/50, (700-position.z)/50);
+    velocity = new PVector((500-position.x)/(50/min(2.5, 1 + 0.005 * sc.getScore())), (575-position.y)/(50/min(2.5, 1 + 0.005 * sc.getScore())), (700-position.z)/(50/min(2.5, 1 + 0.005 * sc.getScore())));
     rotate = 0;
     tick = 0;
   }

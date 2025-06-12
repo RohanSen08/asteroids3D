@@ -11,6 +11,7 @@ boolean firstRun = true;
 PFont font;
 int coolOff = 5;
 Sound sound;
+PImage gold, silver, bronze;
 
 void setup() {
   bg = loadImage("background.png");
@@ -23,6 +24,10 @@ void setup() {
   col = new CollisionDetector();
   font = createFont("Arial", 50, true);
   sound = new Sound(this);
+  gold = loadImage("gold.jpg");
+  silver = loadImage("silver.jpg");
+  bronze = loadImage("bronze.jpg");
+  
 }
 
 void draw() {
@@ -91,6 +96,18 @@ void draw() {
         text("game over, good job!", 300, 200);
       }
       fill(255,255,255);
+      if (sc.getLastScore() >= 50){
+        bronze.resize(200, 200);
+        image(bronze, width/2 - 100, 500);
+      }
+      if (sc.getLastScore() >= 100){
+        silver.resize(200, 200);
+        image(silver, width/2 - 100, 500);
+      }
+      if (sc.getLastScore() >= 150){
+        gold.resize(200, 200);
+        image(gold, width/2 - 100, 500);
+      }
     }
     coolOff--;
   }
